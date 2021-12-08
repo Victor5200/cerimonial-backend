@@ -10,4 +10,6 @@ public class CerimonialApplication {
 		SpringApplication.run(CerimonialApplication.class, args);
 	}
 
+
+
 }
