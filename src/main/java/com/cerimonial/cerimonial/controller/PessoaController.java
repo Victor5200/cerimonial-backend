@@ -1,5 +1,6 @@
 package com.cerimonial.cerimonial.controller;
 
+import com.cerimonial.cerimonial.DTO.PessoaDTO;
 import com.cerimonial.cerimonial.Service.PessoasService;
 import com.cerimonial.cerimonial.model.PessoaModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class PessoaController {
     }
 
     @PostMapping
-    public ResponseEntity <PessoaModel> save(@RequestBody PessoaModel pessoaModel){
-        return ResponseEntity.ok(pessoasService.saveById(pessoaModel));
+    public ResponseEntity <PessoaDTO> save(@RequestBody PessoaDTO dto){
+        return ResponseEntity.ok(pessoasService.saveById(dto));
     }
 
     @DeleteMapping(path = "/{id}")
