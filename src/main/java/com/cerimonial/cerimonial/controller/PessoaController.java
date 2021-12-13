@@ -1,5 +1,6 @@
 package com.cerimonial.cerimonial.controller;
 
+import com.cerimonial.cerimonial.DTO.EventosDTO;
 import com.cerimonial.cerimonial.DTO.PessoaDTO;
 import com.cerimonial.cerimonial.Service.PessoasService;
 import com.cerimonial.cerimonial.model.PessoaModel;
@@ -24,6 +25,7 @@ public class PessoaController {
 
     @GetMapping()
     public ResponseEntity<List<PessoaModel>> find(){
+
         return ResponseEntity.ok(pessoasService.listPessoa());
     }
 
@@ -33,8 +35,9 @@ public class PessoaController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable(value="id") long id ){
+    public ResponseEntity<Void> deleteById(@PathVariable long id ){
         pessoasService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
 }

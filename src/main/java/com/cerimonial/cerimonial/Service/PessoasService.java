@@ -32,5 +32,9 @@ public class PessoasService {
     public void delete(long id ) {
          pessoasRepositorio.deleteById(id);
     }
+
+    public PessoaModel save(PessoaModel model) {
+        return pessoasRepositorio.save(model);
+    }
 }
 
