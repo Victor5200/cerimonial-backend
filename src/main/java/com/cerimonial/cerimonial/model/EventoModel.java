@@ -4,10 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -26,4 +25,13 @@ public class EventoModel {
     private String traje;
     private String emailDoEvento;
     private String observacao;
+
+    @ManyToMany()
+    @JoinTable( name = "Convidado_Evento",
+            joinColumns ={@JoinColumn(name = "id_evento")},
+            inverseJoinColumns = {@JoinColumn(name = "id_pessoa")}
+    )
+    private List<PessoaModel> listaConvidado;
+
+
 }
